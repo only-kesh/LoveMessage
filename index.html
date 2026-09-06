@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>For My Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #1a000c 0%, #050003 100%);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* Interactive Start Button Screen */
+        #start-overlay {
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+        }
+
+        .btn-heart {
+            background: linear-gradient(135deg, #ff2a6d, #ff6584);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 0 25px rgba(255, 42, 109, 0.6);
+            cursor: pointer;
+            animation: pulseBtn 1.8s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 42, 109, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 40px rgba(255, 42, 109, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 42, 109, 0.5); }
+        }
+
+        /* Romantic Glassmorphism Message Card */
+        #message-card {
+            position: absolute;
+            z-index: 5;
+            bottom: 8%;
+            width: 88%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 24px 20px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 105, 180, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s ease-out;
+            pointer-events: none;
+        }
+
+        #message-card.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ff75a0;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(255, 117, 160, 0.5);
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        .heart-icon {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            display: inline-block;
+            animation: beat 1s infinite alternate;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.25); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <div id="start-overlay" onclick="startSurprise()">
+        <button class="btn-heart">Tap to Open My Heart 💌</button>
+    </div>
+
+    <div id="message-card">
+        <div class="card-title">I'm So Sorry, My Love 🥺</div>
+        <p class="card-text">
+            I never meant to make you upset. You mean the entire world to me, and seeing you mad breaks my heart. Please forgive me? ❤️
+        </p>
+        <div class="heart-icon">💖</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
